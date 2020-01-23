@@ -36,3 +36,35 @@ console.log(found);
 
 ---
 
+## Sorting by Name or Number:
+
+**Sorting by number:**
+
+```JavaScript
+const numbers = [4, 5, 10000, 50, 3, 27, 50]
+
+numbers.sort((a, b) => a - b);
+
+console.log(numbers);
+// expected output: [3, 4, 5, 27, 50, 50, 10000]
+```
+
+**Sorting by name:**
+
+```JavaScript
+const names = ["Edward", "Sharpe", "and", "The", "robert", "Magnetic", "zeros"]
+
+names.sort((a, b) => {
+    var nameA = a.toUpperCase(); // ignore upper and lowercase
+    var nameB = b.toUpperCase(); // ignore upper and lowercase
+
+    if(nameA < nameB) return -1;
+    else if(nameA > nameB) return 1;
+    else return 0;
+})
+
+console.log(names);
+// expected output: ["and", "Edward", "Magnetic", "robert", "Sharpe", "The", "zeros"]
+```
+
+---

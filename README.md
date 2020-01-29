@@ -6,20 +6,20 @@
 
 ## The find() and the filter() methods:
 
-**Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value if the searching matched (`find()`) or an `array` with all the matching items (`filter()`), **not `true` or `false`**. Also we need to write a testing `function` for them.
+**Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (`find()`) or an `array` with all elements (`filter()`) if they satisfy the provided testing `function`, **not `true` or `false`**. Also we need to write a testing `function` for them.
 It means those methods take a _`callback`_, and that _`callback`_ is invoked for each item in an `array`.
 
-These methods do **not mutate** the `array` on which it is called, but the `function` provided to _`callback`_ can. If so, the elements processed by find are set before the first invocation of _`callback`_. Therefore:
+These methods do **not mutate** the `array` on which it is called, but the `function` provided to _`callback`_ can. If so, the elements processed by them are set before the first invocation of _`callback`_. Therefore:
 
-- _`callback`_ will not visit any elements added to the `array` after the call to find begins.
-- If an existing, yet-unvisited element of the `array` is changed by _`callback`_, its value passed to the _`callback`_ will be the value at the time find visits that element's index.
+- _`callback`_ will not visit any elements added to the `array` after the call to `find()` or `filter()` begins.
+- If an existing, yet-unvisited element of the `array` is changed by _`callback`_, its value passed to the _`callback`_ will be the value at the time `find()` or `filter()` visit that element.
 - Elements that are _`deleted`_ are still visited.
 
-**Differences:** The `find()` method will stop after the **first match**, and it returns the **actual item** (value), but the `filter()` method will continue searching through the entire `array`, and it returns the **new `array`** with all the matching items.
+**Differences:** The `find()` method will stop after the **first match** with testing `function`, and it returns the **actual item** (value), but the `filter()` method will continue searching through the entire `array`, and it returns the **new `array`** with all the matching items.
 
-If the `find()` method doesn't find anything it will return **`undefined`**, while the `filter()` method will return an **empty `array`**.
+If no element passed the test the `find()` method returns **`undefined`**, while the `filter()` method returns an **empty `array`**.
 
-Array.prototype.find():
+**`Array.prototype.find()`:**
 
 ```JavaScript
 const array1 = [5, 12, 8, 130, 44];
@@ -39,6 +39,58 @@ const found = array1.find(element => element > 10);
 console.log(found);                          // [12, 130, 44]
 ```
 
+---
+
+## The find() and the findIndex() methodes:
+
+**Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (`find()`) or **index** (`findIndex()`) of the **first element** if they satisfy the provided testing function, **not `true` or `false`**. It means they will stop after the **first match** with testing `function`. Also we need to write a testing `function` for them.
+It means those methods take a _`callback`_, and that _`callback`_ is invoked for each item in an `array`.
+
+These methods do **not mutate** the `array` on which it is called, but the `function` provided to _`callback`_ can. If so, the elements processed by them are set before the first invocation of _`callback`_. Therefore:
+
+- _`callback`_ will not visit any elements added to the `array` after the call to `find()` or `findIndex()` begins.
+- If an existing, yet-unvisited element of the `array` is changed by _`callback`_, its value passed to the _`callback`_ will be the value at the time `find()` or `findIndex()` visit that element's index.
+- Elements that are _`deleted`_ are still visited.
+
+**Differences:** The `find()` method will return the **actual value** but `findIndex()` method will return the **index** of elemet if they satisfy the provided testing `function`.
+
+If no element passed the test, the `find()` method returns **`undefined`**, while the `findIndex()` method returns an **`-1`**.
+
+**`Array.prototype.findIndex()`:**
+
+```JavaScript
+const array1 = [5, 12, 8, 130, 44];
+
+const isLargeNumber = (element) => element > 13;
+
+console.log(array1.findIndex(isLargeNumber)); // 3
+
+// ---------------------------------------
+
+// Find the index of a prime number in an array:
+
+function isPrime(num) {
+    for (i = 2; i < num; i++ ) {
+        if (num % i === 0) return false;
+    }
+    return num > 1;
+}
+
+console.log([4, 6, 8, 12].findIndex(isPrime)); // -1, not found
+console.log([4, 6, 7, 12].findIndex(isPrime)); // 2 (array[2] is 7)
+
+// ---------------------------------------
+
+// Find index using arrow function
+
+const fruits = ["apple", "banana", "cantaloupe", "blueberries", "grapefruit"];
+
+const index = fruits.findIndex(fruit => fruit === "blueberries");
+
+console.log(index);                          // 3
+console.log(fruits[index]);                  // blueberries
+
+```
 ---
 
 ## The includes() and the indexOf() methodes:

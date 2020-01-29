@@ -91,6 +91,7 @@ console.log(index);                          // 3
 console.log(fruits[index]);                  // blueberries
 
 ```
+
 ---
 
 ## The includes() and the indexOf() methodes:
@@ -381,6 +382,15 @@ console.log(paragraph.indexOf());            // 45
 
 The `sort()` method **mutate** array.
 
+The compare `function` in `sort()` method is optional. But if omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value.
+
+The compare `function` receives two parameters:
+
+- If `compareFunction(a, b)` returns less than 0, sort `a` to an index lower than `b` (i.e. `a` comes first).
+- If `compareFunction(a, b)` returns 0, leave `a` and `b` unchanged with respect to each other, but sorted with respect to all different elements. Note: the ECMAscript standard does not guarantee this behavior, thus, not all browsers (e.g. Mozilla versions dating back to at least 2003) respect this.
+- If `compareFunction(a, b)` returns greater than 0, sort `b` to an index lower than `a` (i.e. `b` comes first).
+- `compareFunction(a, b)` must always return the same value when given a specific pair of elements `a` and `b` as its two arguments. If inconsistent results are returned, then the sort order is undefined.
+
 **Sorting by number:**
 
 ```JavaScript
@@ -393,13 +403,6 @@ console.log(numbers);
 ```
 
 **Sorting by name:**
-
-Suppose we have an array users. We may use users.sort and pass a function
-that takes two arguments and compare them (comparator). It should returns:
-
-- something negative if first argument is less than second (should be placed before the second in resulting array)
-- something positive if first argument is greater (should be placed after second one)
-- 0 if those two elements are equal.
 
 ```JavaScript
 users.sort(function(a, b) {

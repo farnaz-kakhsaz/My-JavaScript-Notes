@@ -4,9 +4,9 @@
 
 ---
 
-## The find() and the filter() methods:
+## The `find()` and the `filter()` methods:
 
-**Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (`find()`) or an `array` with all elements (`filter()`) if they satisfy the provided testing `function`, **not `true` or `false`**. Also we need to write a testing `function` for them.
+**Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (for `find()` method) or an `array` with all elements (for `filter()` method) if they satisfy the provided testing `function`, **not `true` or `false`**. Also we need to write a testing `function` for them.
 It means those methods take a _`callback`_, and that _`callback`_ is invoked for each item in an `array`.
 
 These methods do **not mutate** the `array` on which it is called, but the `function` provided to _`callback`_ can. If so, the elements processed by them are set before the first invocation of _`callback`_. Therefore:
@@ -15,9 +15,9 @@ These methods do **not mutate** the `array` on which it is called, but the `func
 - If an existing, yet-unvisited element of the `array` is changed by _`callback`_, its value passed to the _`callback`_ will be the value at the time `find()` or `filter()` visit that element.
 - Elements that are _`deleted`_ are still visited.
 
-**Differences:** The `find()` method will stop after the **first match** with testing `function`, and it returns the **actual item** (value), but the `filter()` method will continue searching through the entire `array`, and it returns the **new `array`** with all the matching items.
+**Differences:** The `find()` method will stop after the **first match** with testing `function`, and it returns the **actual item** (value), but the `filter()` method will continue searching through the entire `array`, and it returns the **new `array`** with all the matched items with testing `function`.
 
-If no element passed the test the `find()` method returns **`undefined`**, while the `filter()` method returns an **empty `array`**.
+If no elements pass the test, the `find()` method returns **`undefined`**, while the `filter()` method returns an **empty `array`**.
 
 **`Array.prototype.find()`:**
 
@@ -41,9 +41,9 @@ console.log(found);                          // [12, 130, 44]
 
 ---
 
-## The find() and the findIndex() methodes:
+## The `find()` and the `findIndex()` methodes:
 
-**Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (`find()`) or **index** (`findIndex()`) of the **first element** if they satisfy the provided testing function, **not `true` or `false`**. It means they will stop after the **first match** with testing `function`. Also we need to write a testing `function` for them.
+**Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (for `find()` method) or **index** (for `findIndex()` method) of the **first element** if they satisfy the provided testing function, **not `true` or `false`**. It means they will stop after the **first match** with testing `function`. Also we need to write a testing `function` for them.
 It means those methods take a _`callback`_, and that _`callback`_ is invoked for each item in an `array`.
 
 These methods do **not mutate** the `array` on which it is called, but the `function` provided to _`callback`_ can. If so, the elements processed by them are set before the first invocation of _`callback`_. Therefore:
@@ -89,21 +89,28 @@ const index = fruits.findIndex(fruit => fruit === "blueberries");
 
 console.log(index);                          // 3
 console.log(fruits[index]);                  // blueberries
-
 ```
 
 ---
 
-## The includes() and the indexOf() methodes:
+## The `includes()` and the `indexOf()` methodes:
 
-**Similarities:** Both of these methods can be used on `string` or `array` to find out whether the element is present in the `array` (`string`) or not. They don't return actual value. Also we don't need to write testing `function` (_`callback`_) for them, we just simply pass the value to them.
+**Similarities:** Both of these methods can be used on **`string`** and **`array`** to find out whether the element is present in the `array` (or `string`) or not. They will return **`true`** (for `includes()` method) or **index** (for `indexOf()` method) if element matched **not actual value**. Also we don't need to write testing `function` (_`callback`_) for them, we just simply pass the value to them.
 
-Both of this statement `myArray.includes('some value')` and `myArray.indexOf('some value') !== -1` do the same thing. Although the first statement (`includes`) is the syntactic sugar for the second statement (`indexOf`) which was an old way to write.
+```JavaScript
+// These two statements are the same
+myArray.includes('some value')
 
-`.includes(valueToFind [, startSromThisIndex])`
-`.indexOf(valueToFind [, startSromThisIndex])`
+myArray.indexOf('some value') !== -1
+```
 
-The second argument for both of them is optional and use from set which index to start the search. the default is 0.
+Both of the above statements do the same thing. Although the first statement (the `includes()` method) is the syntactic sugar for the second statement (the `indexOf()` method) which was an old way to write.
+
+`.includes(valueToFind [, startFromThisIndex])`
+
+`.indexOf(valueToFind [, startFromThisIndex])`
+
+The second argument for both of them is **optional** and shows the index to start the search from. the default is 0.
 
 ```JavaScript
 [-0].indexOf(0) > -1                         // true
@@ -113,17 +120,27 @@ The second argument for both of them is optional and use from set which index to
 
 Values of zero are all considered to be equal, regardless of sign. (That is, `-0` is considered to be equal to both `0` and `+0`), but `false` is not considered to be the same as `0`.
 
-**Differences:** The `includes()` returns a `boolean` value — `true` or `false`. But `indexOf` doesn’t return a `boolean`. It returns the **first index** of the element (or character) found in the `array` (`string`), or it will return `-1` (which represents that the element or character is not found).
+**Differences:** The `includes()` (ES2016) returns a `boolean` value — `true` or `false`. But `indexOf()` (ES5) returns the **first index** of the element (or character) found in the `array` (`string`), or it will return `-1` (which represents that the element or character is not found).
 
 ```JavaScript
-[NaN].indexOf(NaN) > -1                      // false
-
 [NaN].includes(NaN)                          // true
+
+[NaN].indexOf(NaN) > -1                      // false
 ```
 
-If `NaN` present in `array`, the `indexOf` method returns `-1` for `NaN` but on the other hand, `includes` method returns `true`.
+If `NaN` present in `array`, the `indexOf()` method for `NaN`, returns `-1` but on the other hand, `includes()` method returns `true`.
 
 The `indexOf()` compares valueToFind to elements of the `Array` using `strict equality` (the same method used by the `===` or `triple-equals operator`).
+
+```JavaScript
+[, , , ,].includes(undefined)                // true
+// Or [].includes(undefined)                 // true
+
+[, , , ,].indexOf(undefined) > -1            // false
+// Or [].indexOf(undefined)                  // false
+```
+
+Also for empty `array`, the `includes()` method returns `true` but `indexOf()` method returns `-1`.
 
 **When to use?**
 
@@ -372,8 +389,6 @@ console.log(paragraph.indexOf());            // 45
 "Blue Whale".indexOf("", 9);                 // returns  9
 "Blue Whale".indexOf("", 10);                // returns 10
 "Blue Whale".indexOf("", 11);                // returns 10
-
-
 ```
 
 ---

@@ -6,6 +6,14 @@
 
 ## The `find()` and the `filter()` methods:
 
+**Syntax:**
+
+```JavaScript
+array.find(callback(element, [index, [array]]), [thisArg])
+
+array.filter(callback(element, [index, [array]]), [thisArg])
+```
+
 **Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (for `find()` method) or an `array` with all elements (for `filter()` method) if they satisfy the provided testing `function`, **not `true` or `false`**. Also we need to write a testing `function` for them.
 It means those methods take a _`callback`_, and that _`callback`_ is invoked for each item in an `array`.
 
@@ -42,6 +50,12 @@ console.log(found);                          // [12, 130, 44]
 ---
 
 ## The `find()` and the `findIndex()` methodes:
+
+**Syntax:**
+
+```JavaScript
+array.findIndex(callback(element, [index, [array]]), [thisArg])
+```
 
 **Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (for `find()` method) or **index** (for `findIndex()` method) of the **first element** if they satisfy the provided testing function, **not `true` or `false`**. It means they will stop after the **first match** with testing `function`. Also we need to write a testing `function` for them.
 It means those methods take a _`callback`_, and that _`callback`_ is invoked for each item in an `array`.
@@ -94,6 +108,16 @@ console.log(fruits[index]);                  // blueberries
 ---
 
 ## The `includes()` and the `indexOf()` methodes:
+
+**Syntax:**
+
+```JavaScript
+myValue = array || string
+
+myValue.includes(valueToFind, [startFromThisIndex])
+
+myValue.indexOf(valueToFind, [startFromThisIndex])
+```
 
 **Similarities:** Both of these methods can be used on **`string`** and **`array`** to find out whether the element is present in the `array` (or `string`) or not. They will return **`true`** (for `includes()` method) or **index** (for `indexOf()` method) if element matched **not actual value**. Also we don't need to write testing `function` (_`callback`_) for them, we just simply pass the value to them.
 

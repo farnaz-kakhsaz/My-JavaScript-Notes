@@ -112,11 +112,9 @@ console.log(fruits[index]);                  // blueberries
 **Syntax:**
 
 ```JavaScript
-myValue = array || string
+arrayOrString.includes(valueToFind, [startFromThisIndex])
 
-myValue.includes(valueToFind, [startFromThisIndex])
-
-myValue.indexOf(valueToFind, [startFromThisIndex])
+arrayOrString.indexOf(valueToFind, [startFromThisIndex])
 ```
 
 **Similarities:** Both of these methods can be used on **`string`** and **`array`** to find out whether the element is present in the `array` (or `string`) or not. They will return **`true`** (for `includes()` method) or **index** (for `indexOf()` method) if element matched **not actual value**. Also we don't need to write testing `function` (_`callback`_) for them, we just simply pass the value to them.
@@ -417,6 +415,169 @@ console.log(paragraph.indexOf());            // 45
 
 ---
 
+## The `splice()`, the `slice()` and `split()` methodes:
+
+**Syntax:**
+
+```JavaScript
+array.splice(startIndex, [deleteCount], [itemToAdd1, itemToAdd2, ...])
+
+arrayOrString.slice(startIndex, [endIndex])
+
+array.split(separator, [limit])
+```
+
+**`splice()`**: This method can only be used on `arrays`. The `splice` method **mutates** the original `array`, by removing or adding elements from it, and returns removed elements (if it had removed any element).
+
+**`slice()`:** This method can be used on both `arrays` and `strings`. It does **not mutate** the original `array` or `string`, and returns a **shallow copy** of a portion of an `array` into a **new `array`**, with all the selected elements from `begin` to `end` (or extracts a section of a `string` and returns it as a **new `string`**), and we should know that the `end` will **not** be included.
+
+**`split()`:** This method turns a `string` into an `array` of `strings` by separating the string into substrings, using a specified separator `string` and returns an `array` of strings.
+
+**`Array.prototype.splice()`:**
+
+```JavaScript
+// Inserts at index 1
+
+const months = ["Jan", "March", "April", "June"];
+
+console.log(months.splice(1, 0, "Feb"));     // []
+
+console.log(months);                         // ["Jan", "Feb", "March", "April", "June"]
+
+// Note: If second argument is 0 or negative, no elements are removed. 
+// In this case, you should specify at least one new element.
+
+// ---------------------------------------
+
+// Replaces 1 element at index 1
+
+const months = ["Jan", "March", "April", "June"];
+
+console.log(months.splice(1, 1, "Feb"));     // ["March"]
+
+console.log(months);                         // ["Jan", "Feb", "April", "June"]
+
+// ---------------------------------------
+
+// Delete 2 element start from index 1
+
+const months = ["Jan", "March", "April", "June"];
+
+console.log(months.splice(1, 2));            // ["March", "April"]
+
+console.log(months);                         // ["Jan", "June"]
+
+// ---------------------------------------
+
+// Delete elements from index 1 until end of array
+
+const months = ["Jan", "March", "April", "June"];
+
+console.log(months.splice(1));               // ["March", "April", "June"]
+
+console.log(months);                         // ["Jan"]
+
+// ---------------------------------------
+
+// Start index from last of array: Replaces 1 element in last index 
+
+const months = ["Jan", "March", "April", "June"];
+
+console.log(months.splice(-1, 1, "Feb"));    // ["June"]
+
+console.log(months);                         // ["Jan", "March", "April", "Feb"]
+
+// ---------------------------------------
+
+// Start index from last of array: Remove to last elements of array
+
+const months = ["Jan", "March", "April", "June"];
+
+console.log(months.splice(-2));              // ["April", "June"]
+
+console.log(months);                         // ["Jan", "March"]
+
+```
+
+**`Array.prototype.slice()` and `String.prototype.slice()`:**
+
+```JavaScript
+// ================================ Array ================================ //
+
+// The index of end will not be included.
+// The slice method doesn't mutate array.
+
+const animals = ["ant", "bison", "camel", "duck", "elephant"];
+
+console.log(animals.slice(2, 4));            // ["camel", "duck"]
+console.log(animals.slice(2, 1));            // []
+console.log(animals.slice(2, 2));            // []
+console.log(animals.slice(2, 3));            // ["camel"]
+console.log(animals.slice(2));               // ["camel", "duck", "elephant"]
+console.log(animals.slice(-2));              // ["duck", "elephant"]
+console.log(animals.slice(-2, -2));          // []
+console.log(animals.slice(-3, -2));          // ["camel"]
+console.log(animals.slice(-3, 3));           // ["camel"]
+
+// ---------------------------------------
+
+// Array-like objects:
+// Convert Array-like objects / collections to a new Array
+
+function list() {
+    console.log(arguments)                   // Object { 0: 1, 1: 2, 2: 3 }    
+    return Array.prototype.slice.call(arguments)
+}
+
+let list1 = list(1, 2, 3);                   // [1, 2, 3]
+
+// ================================ String =============================== //
+// The character at the end index will not be included.
+// Obviously the slice method doesn't mutate string.
+
+const str = "The quick brown fox jumps over the lazy dog.";
+
+console.log(str.length)                      // 44
+
+console.log(str.slice(4, 9));                // "quick"
+console.log(str.slice(4, 3));                // ""
+console.log(str.slice(4, 4));                // ""
+console.log(str.slice(4, 15));               // "quick brown"
+console.log(str.slice(4));                   // "quick brown fox jumps over the lazy dog."
+console.log(str.slice(-4));                  // "dog."
+console.log(str.slice(-4, -4));              // ""
+console.log(str.slice(-9, -5));              // "lazy"
+console.log(str.slice(-9, 39));              // "lazy"
+console.log(str.slice(4, 60));               // "quick brown fox jumps over the lazy dog."
+
+```
+
+**`String.prototype.split()`:**
+
+```JavaScript
+const str = "The brown fox.";
+
+console.log(str.split(" "));                 // ["The", "brown", "fox."]
+console.log(str.split(" ", 1));              // ["The"]
+console.log(str.split(""));
+// ["T", "h", "e", " ", "b", "r", "o", "w", "n", " ", "f", "o", "x", "."]
+console.log(str.split("", 5));               // ["T", "h", "e", " ", "b"]
+console.log(str.split());                    // ["The brown fox."]
+
+// Important Note:
+// Do NOT use empty string ("") as a separator specially with unicode characters.
+// The best way for getting a string to a character array is using one of ES2015 features:
+
+"𝟙𝟚𝟛".split("");                            // ["�", "�", "�", "�", "�", "�"]
+
+[...'𝟘𝟙𝟚𝟛'];                                // ["𝟘", "𝟙", "𝟚", "𝟛"]
+Array.from('𝟘𝟙𝟚𝟛');                         // ["𝟘", "𝟙", "𝟚", "𝟛"]
+
+
+```
+
+---
+
 ## Sorting by Name or Number:
 
 The `sort()` method **mutate** array.
@@ -468,3 +629,5 @@ console.log(names);
 ```
 
 ---
+
+

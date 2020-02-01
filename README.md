@@ -4,6 +4,20 @@
 
 ---
 
+## Table of Contents:
+
+- [The `find()` Method](<## The `find()` and the `filter()` methods:>)
+- [The `filter()` Method](<## The `find()` and the `filter()` methods:>)
+- [The `findIndex()` Method](<## The `find()` and the `findIndex()` methods:>)
+- [The `includes()` Method](<## The `includes()()` and the `indexOf()` methods:>)
+- [The `indexOf()` Method](<## The `includes()()` and the `indexOf()` methods:>)
+- [The `splice()` Method](<## The `splice()`, the `slice()` and `split()` methods:>)
+- [The `slice()` Method](<## The `splice()`, the `slice()` and `split()` methods:>)
+- [The `split()` Method](<## The `splice()`, the `slice()` and `split()` methods:>)
+- [Sorting by Name or Number](<## Sorting by Name or Number:>)
+
+---
+
 ## The `find()` and the `filter()` methods:
 
 **Syntax:**
@@ -49,7 +63,7 @@ console.log(found);                          // [12, 130, 44]
 
 ---
 
-## The `find()` and the `findIndex()` methodes:
+## The `find()` and the `findIndex()` methods:
 
 **Syntax:**
 
@@ -107,7 +121,7 @@ console.log(fruits[index]);                  // blueberries
 
 ---
 
-## The `includes()` and the `indexOf()` methodes:
+## The `includes()` and the `indexOf()` methods:
 
 **Syntax:**
 
@@ -311,33 +325,33 @@ function updateVegetablesCollection (veggies, veggie) {
 
     if (veggies.indexOf(veggie) === -1) {
         veggies.push(veggie);
-        console.log('New veggies collection is : ' + veggies);
+        console.log("New veggies collection is : " + veggies);
     } else if (veggies.indexOf(veggie) > -1) {
-        console.log(veggie + ' already exists in the veggies collection.');
+        console.log(veggie + " already exists in the veggies collection.");
     }
 
 }
 
-var veggies = ['potato', 'tomato', 'chillies', 'green-pepper'];
+var veggies = ["potato", "tomato", "chillies", "green-pepper"];
 
-updateVegetablesCollection(veggies, 'spinach');
+updateVegetablesCollection(veggies, "spinach");
 // New veggies collection is : potato,tomato,chillies,green-pepper,spinach
 
-updateVegetablesCollection(veggies, 'spinach');
+updateVegetablesCollection(veggies, "spinach");
 // spinach already exists in the veggies collection.
 
 
 // ================================ String =============================== //
 
-const paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+const str = "The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?";
 
-const searchTerm = 'dog';
-const indexOfFirst = paragraph.indexOf(searchTerm);
+const searchTerm = "dog";
+const indexOfFirst = str.indexOf(searchTerm);
 
 console.log(indexOfFirst);
 // 40
 
-console.log(paragraph.indexOf(searchTerm, (indexOfFirst + 1)));
+console.log(str.indexOf(searchTerm, (indexOfFirst + 1)));
 //52
 
 // ---------------------------------------
@@ -345,9 +359,9 @@ console.log(paragraph.indexOf(searchTerm, (indexOfFirst + 1)));
 // If no string is explicitly provided for first argument, it will be coerced to
 // "undefined", and this value will be searched for in entire string.
 
-const paragraph = 'The quick brown fox jumps over the lazy dog. undefined If the dog barked, was it really lazy?';
+const str = "The quick brown fox jumps over the lazy dog. undefined If the dog barked, was it really lazy?";
 
-console.log(paragraph.indexOf());            // 45
+console.log(str.indexOf());                  // 45
 
 //or
 "undefined".indexOf();                       // 0
@@ -358,8 +372,8 @@ console.log(paragraph.indexOf());            // 45
 // If the second argument values lower than 0, or greater than str.length,
 // the search starts at index 0 and str.length, respectively.
 
-'hello world'.indexOf('o', -5);              // 4
-'hello world'.includes('o', 11);             // -1 (and with any number greater than 11)
+"hello world".indexOf("o", -5);              // 4
+"hello world".includes("o", 11);             // -1 (and with any number greater than 11)
 
 // The 'hello world'.length is equal to 11.
 // The second statement returns -1 because search is started at position 11,
@@ -415,7 +429,7 @@ console.log(paragraph.indexOf());            // 45
 
 ---
 
-## The `splice()`, the `slice()` and `split()` methodes:
+## The `splice()`, the `slice()` and `split()` methods:
 
 **Syntax:**
 
@@ -444,7 +458,7 @@ console.log(months.splice(1, 0, "Feb"));     // []
 
 console.log(months);                         // ["Jan", "Feb", "March", "April", "June"]
 
-// Note: If second argument is 0 or negative, no elements are removed. 
+// Note: If second argument is 0 or negative, no elements are removed.
 // In this case, you should specify at least one new element.
 
 // ---------------------------------------
@@ -479,7 +493,7 @@ console.log(months);                         // ["Jan"]
 
 // ---------------------------------------
 
-// Start index from last of array: Replaces 1 element in last index 
+// Start index from last of array: Replaces 1 element in last index
 
 const months = ["Jan", "March", "April", "June"];
 
@@ -496,7 +510,6 @@ const months = ["Jan", "March", "April", "June"];
 console.log(months.splice(-2));              // ["April", "June"]
 
 console.log(months);                         // ["Jan", "March"]
-
 ```
 
 **`Array.prototype.slice()` and `String.prototype.slice()`:**
@@ -525,7 +538,7 @@ console.log(animals.slice(-3, 3));           // ["camel"]
 // Convert Array-like objects / collections to a new Array
 
 function list() {
-    console.log(arguments)                   // Object { 0: 1, 1: 2, 2: 3 }    
+    console.log(arguments)                   // Object { 0: 1, 1: 2, 2: 3 }
     return Array.prototype.slice.call(arguments)
 }
 
@@ -549,7 +562,6 @@ console.log(str.slice(-4, -4));              // ""
 console.log(str.slice(-9, -5));              // "lazy"
 console.log(str.slice(-9, 39));              // "lazy"
 console.log(str.slice(4, 60));               // "quick brown fox jumps over the lazy dog."
-
 ```
 
 **`String.prototype.split()`:**
@@ -572,8 +584,6 @@ console.log(str.split());                    // ["The brown fox."]
 
 [...'𝟘𝟙𝟚𝟛'];                                // ["𝟘", "𝟙", "𝟚", "𝟛"]
 Array.from('𝟘𝟙𝟚𝟛');                         // ["𝟘", "𝟙", "𝟚", "𝟛"]
-
-
 ```
 
 ---
@@ -629,5 +639,3 @@ console.log(names);
 ```
 
 ---
-
-

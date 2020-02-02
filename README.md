@@ -23,9 +23,9 @@
 **Syntax:**
 
 ```JavaScript
-array.find(callback(element, [index, [array]]), [thisArg])
+array.find(callback(element, [index], [array]), [thisArg])
 
-array.filter(callback(element, [index, [array]]), [thisArg])
+array.filter(callback(element, [index], [array]), [thisArg])
 ```
 
 **Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (for `find()` method) or an `array` with all elements (for `filter()` method) if they satisfy the provided testing `function`, **not `true` or `false`**. Also we need to write a testing `function` for them.
@@ -68,7 +68,7 @@ console.log(found);                          // [12, 130, 44]
 **Syntax:**
 
 ```JavaScript
-array.findIndex(callback(element, [index, [array]]), [thisArg])
+array.findIndex(callback(element, [index], [array]), [thisArg])
 ```
 
 **Similarities:** Both of them are only used for searching through an **array**, **not string**. And they will return actual value (for `find()` method) or **index** (for `findIndex()` method) of the **first element** if they satisfy the provided testing function, **not `true` or `false`**. It means they will stop after the **first match** with testing `function`. Also we need to write a testing `function` for them.
@@ -98,9 +98,8 @@ console.log(array1.findIndex(isLargeNumber)); // 3
 // Find the index of a prime number in an array:
 
 function isPrime(num) {
-    for (i = 2; i < num; i++ ) {
-        if (num % i === 0) return false;
-    }
+    if (num > 2 && num % 2 == 0)
+        return false;
     return num > 1;
 }
 

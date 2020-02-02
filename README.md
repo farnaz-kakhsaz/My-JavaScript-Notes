@@ -51,7 +51,7 @@ const found = array1.find(element => element > 10);
 console.log(found);                          // 12
 ```
 
-Array.prototype.filter():
+**`Array.prototype.filter()`:**
 
 ```JavaScript
 const array1 = [5, 12, 8, 130, 44];
@@ -59,6 +59,20 @@ const array1 = [5, 12, 8, 130, 44];
 const found = array1.find(element => element > 10);
 
 console.log(found);                          // [12, 130, 44]
+
+// ---------------------------------------
+
+// Find all prime numbers in an array
+
+let array = [4, 6, 8, 12, 53, -17, 2, 5, 7, 31, 97, -1, 17];
+
+function isPrime(num) {
+    if (num > 2 && num % 2 == 0)
+        return false;
+    return num > 1;
+}
+
+console.log(array.filter(isPrime));          // [53, 2, 5, 7, 31, 97, 17]
 ```
 
 ---

@@ -62,17 +62,21 @@ console.log(found);                          // [12, 130, 44]
 
 // ---------------------------------------
 
-// Find all prime numbers in an array
+// Find all prime numbers in an array:
 
-let array = [4, 6, 8, 12, 53, -17, 2, 5, 7, 31, 97, -1, 17];
+const array = [-5, -3, -2, -1, ...Array(20).keys()];
+// Array(20).keys() generates numbers from 0 to 19.
 
 function isPrime(num) {
-    if (num > 2 && num % 2 == 0)
-        return false;
-    return num > 1;
+  for (let start = 2; num > start; start++) {
+    if (num % start == 0) {
+      return false;
+    }
+  }
+  return num > 1;
 }
 
-console.log(array.filter(isPrime));          // [53, 2, 5, 7, 31, 97, 17]
+console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13, 17, 19]
 ```
 
 ---
@@ -112,17 +116,20 @@ console.log(array1.findIndex(isLargeNumber)); // 3
 // Find the index of a prime number in an array:
 
 function isPrime(num) {
-    if (num > 2 && num % 2 == 0)
-        return false;
+    for (let i = 2; num > i; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
     return num > 1;
 }
 
-console.log([4, 6, 8, 12].findIndex(isPrime)); // -1, not found
-console.log([4, 6, 7, 12].findIndex(isPrime)); // 2 (array[2] is 7)
+console.log([4, 6, 8, 9, 12].findIndex(isPrime)); // -1, not found
+console.log([4, 6, 7, 9, 12].findIndex(isPrime)); // 2 (array[2] is 7)
 
 // ---------------------------------------
 
-// Find index using arrow function
+// Find index using arrow function:
 
 const fruits = ["apple", "banana", "cantaloupe", "blueberries", "grapefruit"];
 
@@ -558,6 +565,7 @@ function list() {
 let list1 = list(1, 2, 3);                   // [1, 2, 3]
 
 // ================================ String =============================== //
+
 // The character at the end index will not be included.
 // Obviously the slice method doesn't mutate string.
 
@@ -652,3 +660,7 @@ console.log(names);
 ```
 
 ---
+
+Shallow Copy: Simply makes a copy of the reference to A into B. Think about it as a copy of A's Address. So, the addresses of A and B will be the same i.e. they will be pointing to the same memory location i.e. data contents.
+
+Deep copy: Simply makes a copy of all the members of A, allocates memory in a different location for B and then assigns the copied members to B to achieve deep copy. In this way, if A becomes non-existant B is still valid in the memory.

@@ -672,7 +672,7 @@ console.log(names);
 
 ---
 
-## The difference between Repaint and Reflow:
+## The difference between **Repaint** and **Reflow**:
 
 **Repaint**: A **repaint** occurs when changes are made to an elements skin that changes visibly, but do not affect its layout.
 

@@ -16,13 +16,13 @@
 - [The `split()` Method](<## The `splice()`, the `slice()` and `split()` methods:>)
 - [Sorting by Name or Number](<## Sorting by Name or Number:>)
 
-- [Shallow Copy](<## The difference between **Shallow Copy** and **Deep Copy**?>)
+- [Shallow Copy](<## The difference between **Shallow Copy** and **Deep Copy**>)
 
-- [Deep Copy](<## The difference between **Shallow Copy** and **Deep Copy**?>)
+- [Deep Copy](<## The difference between **Shallow Copy** and **Deep Copy**>)
 
-- [Repaint](<## The difference between **Repaint** and **Reflow**?>)
+- [Repaint](<## The difference between **Repaint** and **Reflow**>)
 
-- [Reflow](<## The difference between **Repaint** and **Reflow**?>)
+- [Reflow](<## The difference between **Repaint** and **Reflow**>)
 
 ---
 

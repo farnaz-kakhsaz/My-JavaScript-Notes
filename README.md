@@ -16,6 +16,14 @@
 - [The `split()` Method](<## The `splice()`, the `slice()` and `split()` methods:>)
 - [Sorting by Name or Number](<## Sorting by Name or Number:>)
 
+- [Shallow Copy](<## The difference between **Shallow Copy** and **Deep Copy**?>)
+
+- [Deep Copy](<## The difference between **Shallow Copy** and **Deep Copy**?>)
+
+- [Repaint](<## The difference between **Repaint** and **Reflow**?>)
+
+- [Reflow](<## The difference between **Repaint** and **Reflow**?>)
+
 ---
 
 ## The `find()` and the `filter()` methods:
@@ -661,6 +669,20 @@ console.log(names);
 
 ---
 
-Shallow Copy: Simply makes a copy of the reference to A into B. Think about it as a copy of A's Address. So, the addresses of A and B will be the same i.e. they will be pointing to the same memory location i.e. data contents.
+## The difference between **Shallow Copy** and **Deep Copy**:
 
-Deep copy: Simply makes a copy of all the members of A, allocates memory in a different location for B and then assigns the copied members to B to achieve deep copy. In this way, if A becomes non-existant B is still valid in the memory.
+**Shallow Copy**: Simply makes a copy of the reference to A into B. Think about it as a copy of A's Address. So, the addresses of A and B will be the same i.e. they will be pointing to the same memory location i.e. data contents.
+
+**Deep copy**: Simply makes a copy of all the members of A, allocates memory in a different location for B and then assigns the copied members to B to achieve deep copy. In this way, if A becomes non-existant B is still valid in the memory.
+
+---
+
+## The difference between **Repaint** and **Reflow**:
+
+**Repaint**: A **repaint** occurs when changes are made to an elements skin that changes visibly, but do not affect its layout.
+
+Examples of this include `outline`, `visibility`, `background`, or `color`. According to Opera, repaint is expensive because the browser must verify the visibility of all other nodes in the DOM tree.
+
+**Reflow**: A **reflow** is even more critical to performance because it involves changes that affect the layout of a portion of the page (or the whole page).
+
+Examples that cause reflows include: adding or removing content, explicitly or implicitly changing `width`, `height`, `font-family`, `font-size` and more.

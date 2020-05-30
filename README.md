@@ -20,8 +20,6 @@
 - [Repaint](#the-difference-between-repaint-and-reflow:)
 - [Reflow](#the-difference-between-repaint-and-reflow:)
 
-[Reflow](#the-difference-between-repaint-and-reflow:)
-
 ---
 
 ## The `find()` and the `filter()` methods:

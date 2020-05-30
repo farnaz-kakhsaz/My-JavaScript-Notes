@@ -18,7 +18,7 @@
 - [Shallow Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
 - [Deep Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
 - [Repaint](<## The difference between **Repaint** and **Reflow**:>)
-- [Reflow](#-the-difference-between-repaint-and-reflow:)
+- [Reflow](#the-difference-between-repaint-and-reflow:)
 ---
 
 ## The `find()` and the `filter()` methods:

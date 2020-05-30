@@ -17,7 +17,7 @@
 - [Sorting by Name or Number](<## Sorting by Name or Number:>)
 - [Shallow Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
 - [Deep Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
-- [Repaint](<#the-difference-between-**repaint**-and-**reflow**:)
+- [Repaint](#the-difference-between-**repaint**-and-**reflow**:)
 - [Reflow](#the-difference-between-repaint-and-reflow:)
 ---
 

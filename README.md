@@ -17,8 +17,11 @@
 - [Sorting by Name or Number](<## Sorting by Name or Number:>)
 - [Shallow Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
 - [Deep Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
-- [Repaint](#the-difference-between-**repaint**-and-**reflow**:)
+- [Repaint](#the-difference-between-repaint-and-reflow:)
 - [Reflow](#the-difference-between-repaint-and-reflow:)
+
+[Reflow](#the-difference-between-repaint-and-reflow:)
+
 ---
 
 ## The `find()` and the `filter()` methods:
@@ -673,7 +676,6 @@ console.log(names);
 ---
 
 ## The difference between **Repaint** and **Reflow**:
-## The difference between Repaint and Reflow:
 
 **Repaint**: A **repaint** occurs when changes are made to an elements skin that changes visibly, but do not affect its layout.
 

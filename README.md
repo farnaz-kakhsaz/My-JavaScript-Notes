@@ -6,20 +6,19 @@
 
 ## Table of Contents:
 
-- [The `find()` Method](#The-find()-and-the-filter()-methods)
-- [The `filter()` Method](<## The `find()` and the `filter()` methods:>)
-- [The `findIndex()` Method](<## The `find()` and the `findIndex()` methods:>)
-- [The `includes()` Method](<## The `includes()()` and the `indexOf()` methods:>)
-- [The `indexOf()` Method](<## The `includes()()` and the `indexOf()` methods:>)
-- [The `splice()` Method](#the-splice(),-the-slice()-and-split()-methods)
-- [The `splice()` Method](#the-splice()-the-slice()-and-split()-methods)
-- [The `slice()` Method](#the-`splice()`,-the-`slice()`-and-`split()`-methods)
-- [The `split()` Method](#the-`splice()`,-the-`slice()`-and-`split()`-methods:)
+- [The `find()` Method](#the-find-and-the-filter-methods)
+- [The `filter()` Method](#the-find-and-the-filter-methods)
+- [The `findIndex()` Method](#the-find-and-the-filter-methods)
+- [The `includes()` Method](#the-find-and-the-filter-methods)
+- [The `indexOf()` Method](#the-find-and-the-filter-methods)
+- [The `splice()` Method](#the-find-and-the-filter-methods)
+- [The `slice()` Method](#the-find-and-the-filter-methods)
+- [The `split()` Method](#the-find-and-the-filter-methods)
 - [Sorting by Name or Number](#sorting-by-name-or-number)
-- [Shallow Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
-- [Deep Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
-- [Repaint](#the-difference-between-repaint-and-reflow:)
-- [Reflow](#the-difference-between-repaint-and-reflow:)
+- [Shallow Copy](#the-difference-between-shallow-copy-and-deep-copy)
+- [Deep Copy](#the-difference-between-shallow-copy-and-deep-copy)
+- [Repaint](#the-difference-between-repaint-and-reflow)
+- [Reflow](#the-difference-between-repaint-and-reflow)
 
 ---
 

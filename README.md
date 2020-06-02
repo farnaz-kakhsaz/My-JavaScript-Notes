@@ -6,7 +6,7 @@
 
 ## Table of Contents:
 
-- [The `find()` Method](#The-`find()`-and-the-`filter()`-methods)
+- [The `find()` Method](#The-find()-and-the-filter()-methods)
 - [The `filter()` Method](<## The `find()` and the `filter()` methods:>)
 - [The `findIndex()` Method](<## The `find()` and the `findIndex()` methods:>)
 - [The `includes()` Method](<## The `includes()()` and the `indexOf()` methods:>)
@@ -14,7 +14,7 @@
 - [The `splice()` Method](<## The `splice()`, the `slice()` and `split()` methods:>)
 - [The `slice()` Method](<## The `splice()`, the `slice()` and `split()` methods:>)
 - [The `split()` Method](<## The `splice()`, the `slice()` and `split()` methods:>)
-- [Sorting by Name or Number](<## Sorting by Name or Number:>)
+- [Sorting by Name or Number](<#sorting-by-name-or-number)
 - [Shallow Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
 - [Deep Copy](<## The difference between **Shallow Copy** and **Deep Copy**:>)
 - [Repaint](#the-difference-between-repaint-and-reflow:)

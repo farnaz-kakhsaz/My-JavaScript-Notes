@@ -6,7 +6,7 @@
 
 ## Table of Contents:
 
-- [The `find()` Method](<## The `find()` and the `filter()` methods:>)
+- [The `find()` Method](#The-`find()`-and-the-`filter()`-methods)
 - [The `filter()` Method](<## The `find()` and the `filter()` methods:>)
 - [The `findIndex()` Method](<## The `find()` and the `findIndex()` methods:>)
 - [The `includes()` Method](<## The `includes()()` and the `indexOf()` methods:>)
